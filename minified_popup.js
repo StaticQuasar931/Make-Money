@@ -114,19 +114,28 @@ Developed by Economical Games
         prestigeDisplay.innerHTML = a + " (+" + (50 * a) + "%)";
     }
 
-    // Load game data when the page loads
-    document.addEventListener("DOMContentLoaded", function(){
-        loadGameData();
-        updateDisplays();
-        
-        // Example: Button event to save game
-        document.getElementById("save_button").addEventListener("click", function(){
-            b();
-            alert("Game saved successfully!");
-        });
+// Function to load game data and initialize the game
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if the necessary elements exist before interacting with them
+    const saveButton = document.getElementById("save_button");
+    
+    // Load game data and update display after DOM is ready
+    loadGameData();
+    updateDisplays();
 
-        // Periodically save the game every 10 seconds
-        setInterval(b, 10000);
-    });
-}();
+    // Ensure the save button exists before attaching the event listener
+    if (saveButton) {
+        // Event listener to save the game when the save button is clicked
+        saveButton.addEventListener("click", function() {
+            b();  // Call save function (assuming b() is the save function)
+            alert("Game saved successfully!");  // Alert to inform the user
+        });
+    } else {
+        console.error("Save button with id 'save_button' not found.");
+    }
+
+    // Automatically save the game every 10 seconds
+    setInterval(b, 10000);
+});
+
 
