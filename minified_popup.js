@@ -99,7 +99,7 @@
         prestigeDisplay.innerHTML = a + " (+" + (50 * a) + "%)";
     }
 
-    // Function to load game data and initialize the game
+// Function to load game data and initialize the game
 document.addEventListener("DOMContentLoaded", function() {
     // Check if the necessary elements exist before interacting with them
     function checkAndLoadElements() {
@@ -130,6 +130,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Automatically save the game every 10 seconds
+        setInterval(function() {
+            if (moneyScreen && incomeScreen && prestigePoints) {
+                b();  // Call save function periodically
+            }
+        }, 10000);
+    }
+
+    // Run the function after ensuring DOM is loaded
+    checkAndLoadElements();
+});
+
         setInterval(function() {
             if (moneyScreen && incomeScreen && prestigePoints) {
                 b();  // Call save function periodically
