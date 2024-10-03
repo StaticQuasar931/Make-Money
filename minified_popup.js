@@ -1,18 +1,3 @@
-/*
-
-    __  __    _    _  _______    
-   |  \/  |  / \  | |/ / ____|   
-   | |\/| | / _ \ | ' /|  _|     
-   | |  | |/ ___ \| . \| |___    
-  _|_|__|_/_/  _\_\_|\_\_____| __
- |  \/  |/ _ \| \ | | ____\ \ / /
- | |\/| | | | |  \| |  _|  \ V / 
- | |  | | |_| | |\  | |___  | |  
- |_|  |_|\___/|_| \_|_____| |_|  
-                                 
-Developed by Economical Games
-                                 
-*/
 !function(){
     var e, t, n, o, l, i, s, a, d, c = {
         1: [1, "Water Bottle", 10], 2: [1, "Backpack", 50], 3: [1, "Cart", 100], 
@@ -114,41 +99,36 @@ Developed by Economical Games
         prestigeDisplay.innerHTML = a + " (+" + (50 * a) + "%)";
     }
 
-// Function to load game data and initialize the game
-document.addEventListener("DOMContentLoaded", function() {
-    // Check if the necessary elements exist before interacting with them
-    const saveButton = document.getElementById("save_button");
-    
-   // Load game data and update display after DOM is ready
-document.addEventListener("DOMContentLoaded", function() {
-    // Check if necessary DOM elements for game data and display updates exist
-    const gameElementsExist = document.getElementById("moneyscreen_money") &&
-                              document.getElementById("moneyscreen_income") &&
-                              document.getElementById("prestige_points_info");
+    // Function to load game data and initialize the game
+    document.addEventListener("DOMContentLoaded", function() {
+        // Check if the necessary elements exist before interacting with them
+        const saveButton = document.getElementById("save_button");
 
-    // Only proceed if the required elements are found
-    if (gameElementsExist) {
-        loadGameData();  // Load saved game data
-        updateDisplays();  // Update the game UI with the loaded data
-    } else {
-        console.error("Required game elements not found in the DOM.");
-    }
-});
+        // Check if necessary DOM elements for game data and display updates exist
+        const gameElementsExist = document.getElementById("moneyscreen_money") &&
+                                  document.getElementById("moneyscreen_income") &&
+                                  document.getElementById("prestige_points_info");
 
+        // Only proceed if the required elements are found
+        if (gameElementsExist) {
+            loadGameData();  // Load saved game data
+            updateDisplays();  // Update the game UI with the loaded data
+        } else {
+            console.error("Required game elements not found in the DOM.");
+        }
 
-    // Ensure the save button exists before attaching the event listener
-    if (saveButton) {
-        // Event listener to save the game when the save button is clicked
-        saveButton.addEventListener("click", function() {
-            b();  // Call save function (assuming b() is the save function)
-            alert("Game saved successfully!");  // Alert to inform the user
-        });
-    } else {
-        console.error("Save button with id 'save_button' not found.");
-    }
+        // Ensure the save button exists before attaching the event listener
+        if (saveButton) {
+            // Event listener to save the game when the save button is clicked
+            saveButton.addEventListener("click", function() {
+                b();  // Call save function
+                alert("Game saved successfully!");  // Alert to inform the user
+            });
+        } else {
+            console.error("Save button with id 'save_button' not found.");
+        }
 
-    // Automatically save the game every 10 seconds
-    setInterval(b, 10000);
-});
-
-
+        // Automatically save the game every 10 seconds
+        setInterval(b, 10000);
+    });
+}();
