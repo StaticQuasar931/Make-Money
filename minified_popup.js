@@ -119,9 +119,22 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check if the necessary elements exist before interacting with them
     const saveButton = document.getElementById("save_button");
     
-    // Load game data and update display after DOM is ready
-    loadGameData();
-    updateDisplays();
+   // Load game data and update display after DOM is ready
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if necessary DOM elements for game data and display updates exist
+    const gameElementsExist = document.getElementById("moneyscreen_money") &&
+                              document.getElementById("moneyscreen_income") &&
+                              document.getElementById("prestige_points_info");
+
+    // Only proceed if the required elements are found
+    if (gameElementsExist) {
+        loadGameData();  // Load saved game data
+        updateDisplays();  // Update the game UI with the loaded data
+    } else {
+        console.error("Required game elements not found in the DOM.");
+    }
+});
+
 
     // Ensure the save button exists before attaching the event listener
     if (saveButton) {
